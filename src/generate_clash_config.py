@@ -25,7 +25,7 @@ def replace_url(url, convert=""):
     return convert + url
 
 
-def create_provider(name, obj, interval1=3600, interval2=300, convert=""):
+def create_provider(name, obj, interval1=86400, interval2=300, convert=""):
     return {
         "type": "http",
         "path": f"./profiles/proxies/{name}.yaml",
