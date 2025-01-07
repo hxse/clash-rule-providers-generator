@@ -1,0 +1,18 @@
+[project]
+name = "clash-rule-providers-generator"
+version = "0.1.0"
+description = "Default template for PDM package"
+readme = "README.md"
+requires-python = "==3.10.*"
+dependencies = [
+    "fastapi[standard]",
+    "requests>=2.32.3",
+    "typer>=0.15.1",
+]
+authors = [
+    {name = "hxse", email = "narutohy@163.com"},
+]
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
