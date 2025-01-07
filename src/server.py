@@ -11,7 +11,9 @@ app = FastAPI()
 @app.get("/")
 async def read_root(url: str, convert: str = ""):
     ct = datetime.datetime.now()
-    response = requests.get(url + f"?_={ct.timestamp()}")
+    url = url + f"?_={ct.timestamp()}"
+    print(url)
+    response = requests.get(url)
     if response.status_code == 200:
         yaml_data = load_yaml_str(response.text)
         data = build_config(yaml_data, convert=convert)

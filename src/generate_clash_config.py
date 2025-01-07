@@ -64,6 +64,25 @@ def add_group_proxies(custom_data, enable_match=True):
 
 
 def create_proxy_groups(name, interval=300):
+    if "M" in name.split("-")[0]:
+        return [
+            {
+                "name": f"{name}_s",
+                "type": "select",
+                "interval": interval,
+                "url": "http://www.gstatic.com/generate_204",
+                "proxies": [f"{name}_a"],
+                "use": [name],
+            },
+            {
+                "name": f"{name}_a",
+                "type": "load-balance",
+                "strategy": "round-robin",
+                "interval": interval,
+                "url": "http://www.gstatic.com/generate_204",
+                "use": [name],
+            },
+        ]
     return [
         {
             "name": f"{name}_s",
